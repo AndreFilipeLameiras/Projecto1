@@ -37,8 +37,9 @@ namespace Projecto1.Controllers
         [HttpPost]
         public IActionResult Register(GuestResponse response)
         {
-            //TODO: Store guest response
-            return View("Thankyou");
+            Repository.AddResponse(response);
+
+            return View("Thankyou", response);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
