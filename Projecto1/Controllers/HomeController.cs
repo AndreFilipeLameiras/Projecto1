@@ -42,6 +42,12 @@ namespace Projecto1.Controllers
             return View("Thankyou", response);
         }
 
+
+        public IActionResult GuestList()
+        {
+            return View(Repository.Responses);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
