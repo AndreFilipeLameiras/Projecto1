@@ -5,25 +5,43 @@
 
 <h1>Guest List</h1>
 
+<h1>People coming to party</h1>
 
-
-
+<div class="mb-3">
+    <a asp-action="PeopleComingParty">People coming to party</a>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
                 Name
             </th>
+            <th>
+                Will attends
+            </th>
+
         </tr>
     </thead>
     <tbody>
         @foreach(var guest in Model)
             {
-                <tr>
-                    <td>
-                        @guest.Name
-                    </td>
-                </tr>
+        <tr>
+            <td>@guest.Name</td>
+            <td>
+                @if (guest.WillAttend == null)
+                {
+                    @:Dont know
+                }
+                else if (guest.WillAttend == true)
+                {
+                    @:Yes
+                }
+                else
+                {
+                    @:No
+                }
+            </td>
+        </tr>
             }
     </tbody>
 </table>

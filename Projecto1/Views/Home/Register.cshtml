@@ -4,26 +4,24 @@
 }
 
 <h1>Register</h1>
-<h2>Are you comming to the party? </h2>
+<h2>Are you coming to the party?</h2>
 
 <form asp-action="Register" method="post">
+    <div class="text-danger" asp-validation-summary="All"></div>
     <div class="form-group">
-        <label asp-for="Name"></label>
+        <label asp-for="Name">Name</label>
         <input asp-for="Name" class="form-control" placeholder="Enter your name" />
     </div>
-
     <div class="form-group">
-        <label asp-for="Email"></label>
+        <label asp-for="Email">Email</label>
         <input asp-for="Email" class="form-control" placeholder="Enter your email" />
     </div>
-
     <div class="form-group">
-        <label asp-for="Phone"></label>
+        <label asp-for="Phone">Phone Number</label>
         <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" />
     </div>
-
     <div class="form-group">
-        <label asp-for="WillAttend">Are you comming to the party?</label>
+        <label asp-for="WillAttend">Are you coming to the party?</label>
         <select asp-for="WillAttend" class="form-control">
             <option value="">
                 I don't know yet
@@ -35,14 +33,9 @@
                 No, sorry can't make it
             </option>
         </select>
-
-
     </div>
     <div>
-        <button type="submit" class="btn btn-primary">Save </button>
+        <button type="submit" class="btn btn-primary">Save</button>
         <a asp-action="Index" class="btn btn-secondary">Cancel</a>
     </div>
-    
-
-    
 </form>

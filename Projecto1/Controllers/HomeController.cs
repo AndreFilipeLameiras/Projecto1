@@ -37,9 +37,17 @@ namespace Projecto1.Controllers
         [HttpPost]
         public IActionResult Register(GuestResponse response)
         {
-            Repository.AddResponse(response);
-
-            return View("Thankyou", response);
+            if (ModelState.IsValid)
+            {
+                //Guardar a resposta
+                Repository.AddResponse(response);
+                return View("ThankYou", response);
+            }
+            else
+            {
+                //there are avlidations error
+                return View();
+            }
         }
 
 
@@ -47,6 +55,12 @@ namespace Projecto1.Controllers
         {
             return View(Repository.Responses);
         }
+
+        public IActionResult PeopleComingParty()
+        {
+            return View(Repository.Responses.Where(g => g.WillAttend == true));
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
